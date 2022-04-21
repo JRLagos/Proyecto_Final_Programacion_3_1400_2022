@@ -9,6 +9,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 
+MysqlConfiguration cadenaConexion = new MysqlConfiguration(builder.Configuration.GetConnectionString("MySQL"));
+builder.Services.AddSingleton(cadenaConexion);
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
