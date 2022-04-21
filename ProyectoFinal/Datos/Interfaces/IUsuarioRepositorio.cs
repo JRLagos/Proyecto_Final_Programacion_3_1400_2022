@@ -10,3 +10,4 @@ public interface IUsuarioRepositorio
     Task<IEnumerable<Usuario>> GetLista();
     Task<Usuario> GetPorcodigo(string codigo);
 }
+//hola 
