@@ -1,6 +1,6 @@
-﻿namespace ProyectoFinal.Pages.Usuarios
+﻿namespace ProyectoFinal.Pages.Usuarios;
+
+partial class Usuarios
 {
-    public class Usuarios
-    {
-    }
+
 }
