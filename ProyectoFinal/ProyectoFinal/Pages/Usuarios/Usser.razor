@@ -1,0 +1,31 @@
+﻿@page "/Usser"
+
+<h3>Lista de Usuarios</h3>
+
+@if (usuariosLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo Usuario</th>
+                <th>Nombre</th>
+                <th>Tipo Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in usuariosLista)
+            {
+                <tr>
+                    <td>@user.CodigoUsuario</td>
+                    <td>@user.Nombre</td>
+                    <td>@user.TipoUsuario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

@@ -7,7 +7,7 @@ public class Usuario
     [Required(ErrorMessage = "El Campo CodigoUsuario Es Obligatorio")]
     public string CodigoUsuario { get; set; }
     [Required(ErrorMessage = "El Campo NombreUsuario Es Obligatorio")]
-    public string NombreUsuario { get; set; }
+    public string Nombre { get; set; }
     public string Clave { get; set; }
     [Required(ErrorMessage = "El Campo TipoUsuario Es Obligatorio")]
     public string TipoUsuario { get; set; }

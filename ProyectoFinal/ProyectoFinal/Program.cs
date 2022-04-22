@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ProyectoFinal.Data;
+using ProyectoFinal.Interfaces;
+using ProyectoFinal.Servicios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,7 @@ builder.Services.AddSingleton<WeatherForecastService>();
 MysqlConfiguration cadenaConexion = new MysqlConfiguration(builder.Configuration.GetConnectionString("MySQL"));
 builder.Services.AddSingleton(cadenaConexion);
 
+builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 
 var app = builder.Build();
 
