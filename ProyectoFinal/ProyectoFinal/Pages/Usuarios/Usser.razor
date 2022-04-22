@@ -14,6 +14,7 @@ else
                 <th>Codigo Usuario</th>
                 <th>Nombre</th>
                 <th>Tipo Usuario</th>
+                <th>Estado</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,18 @@ else
                     <td>@user.CodigoUsuario</td>
                     <td>@user.Nombre</td>
                     <td>@user.TipoUsuario</td>
+                    <td>
+                        @if(@user.Estado)
+                        {
+                            <span class = "oi oi-circle-check" style = "color:green;"></span>
+                        }
+                        else
+                        {
+                              <span class = "oi oi-circle-x" style = "color:red;"></span>
+                        
+                        }
+
+                    </td>
                 </tr>
             }
         </tbody>

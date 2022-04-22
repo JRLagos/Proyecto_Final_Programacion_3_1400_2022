@@ -11,4 +11,5 @@ public class Usuario
     public string Clave { get; set; }
     [Required(ErrorMessage = "El Campo TipoUsuario Es Obligatorio")]
     public string TipoUsuario { get; set; }
+    public bool Estado { get; set; }
 }
