@@ -2,6 +2,7 @@
 
 <EditForm Model = "@user">
     <DataAnnotationsValidator/>
+        <h3>Auto-Ventas UNAH</h3>
         <h3>Editar Usuario</h3>
         <hr />
 
@@ -59,8 +60,8 @@
                         <option value = "@TipoUsuario">@TipoUsuario</option>
                     }
                 </InputSelect>
-                <ValidationMessage For= "@(() => user.TipoUsuario)" />
+                <ValidationMessage  For= "@(() => user.TipoUsuario)" />
             </div>
         </div>
 
-</EditForm>
+</EditForm>>
