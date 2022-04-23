@@ -19,14 +19,44 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return new MySqlConnection(CadenaConexion);
     }
 
-    public Task<bool> Actualizar(Usuario usuario)
+    public async Task<bool> Actualizar(Usuario usuario)
     {
-        throw new NotImplementedException();
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "UPDATE usuario SET CodigoUsuario = @CodigoUsuario, Nombre = @Nombre, Clave = @Clave, Estado= @Estado,  TipoUsuario = @TipoUsuario WHERE CodigoUsuario = @CodigoUsuario;";
+            resultado = await conexion.ExecuteAsync(sql, new {usuario.CodigoUsuario, usuario.Nombre, usuario.Clave, usuario.Estado , usuario.TipoUsuario});
+
+            return resultado > 0;
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+      
     }
 
-    public Task<bool> Eliminar(Usuario usuario)
+    public async Task<bool> Eliminar(Usuario usuario)
     {
-        throw new NotImplementedException();
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "DELETE usuario WHERE CodigoUsuario = @CodigoUsuario";
+            resultado = await conexion.ExecuteAsync(sql, new {usuario.CodigoUsuario});
+
+            return resultado > 0;
+
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+
     }
 
     public async Task<IEnumerable<Usuario>> GetLista()
@@ -63,9 +93,23 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         return  user;
     }
 
-    public Task<bool> Nuevo(Usuario usuario)
+    public async Task<bool> Nuevo(Usuario usuario)
     {
-        throw new NotImplementedException();
+        int resultado;
+        try
+        {
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "INSERT INTO usuario SET (CodigoUsuario, Nombre, Clave, TipoUsuario, Estado) VALUES (@CodigoUsuario, @Nombre, @Clave , @Estado, @TipoUsuario)";
+            resultado = await conexion.ExecuteAsync(sql, usuario);
+
+            return resultado > 0;
+
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }
-//ProyectoFinal
+
