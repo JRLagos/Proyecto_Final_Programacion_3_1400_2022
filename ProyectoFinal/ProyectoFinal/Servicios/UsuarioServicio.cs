@@ -24,7 +24,7 @@ public class UsuarioServicio : IUsuarioServicio
 
     public async Task<bool> Eliminar(Usuario usuario)
     {
-      return await usuarioRepositorio.Eliminar(usuario);
+        return await usuarioRepositorio.Eliminar(usuario);
     }
 
     public  async Task<IEnumerable<Usuario>> GetLista()

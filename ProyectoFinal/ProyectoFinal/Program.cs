@@ -1,3 +1,4 @@
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ProyectoFinal.Data;
@@ -15,6 +16,7 @@ MysqlConfiguration cadenaConexion = new MysqlConfiguration(builder.Configuration
 builder.Services.AddSingleton(cadenaConexion);
 
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
+builder.Services.AddSweetAlert2();
 
 var app = builder.Build();
 

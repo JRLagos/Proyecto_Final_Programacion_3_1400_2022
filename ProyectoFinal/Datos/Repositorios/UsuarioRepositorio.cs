@@ -46,13 +46,13 @@ public class UsuarioRepositorio : IUsuarioRepositorio
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "DELETE usuario WHERE CodigoUsuario = @CodigoUsuario";
+            string sql = "DELETE FROM usuario WHERE CodigoUsuario = @CodigoUsuario";
             resultado = await conexion.ExecuteAsync(sql, new {usuario.CodigoUsuario});
 
             return resultado > 0;
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             return false;
         }

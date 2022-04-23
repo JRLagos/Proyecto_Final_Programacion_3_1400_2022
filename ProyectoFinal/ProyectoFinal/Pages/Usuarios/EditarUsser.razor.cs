@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using CurrieTechnologies.Razor.SweetAlert2;
+using Microsoft.AspNetCore.Components;
 using Modelos;
 using ProyectoFinal.Interfaces;
 
@@ -9,6 +10,8 @@ partial class EditarUsser
     [Inject] private IUsuarioServicio _usuarioServicio { get; set; }
 
     [Inject] NavigationManager _navigationManager { get; set; }
+
+    [Inject] SweetAlertService Swal { get; set; }
 
     [Parameter] public string Codigo { get; set; }
     Usuario user = new Usuario();
@@ -32,11 +35,12 @@ partial class EditarUsser
 
         if (edito)
         {
-
+            await Swal.FireAsync("Bien Hecho", "Usuario actualizado", SweetAlertIcon.Success);
         }
         else
         {
 
+            await Swal.FireAsync("Error", "Funcion Fallida", SweetAlertIcon.Error);
         }
         _navigationManager.NavigateTo("/usser");   
     }
@@ -47,6 +51,40 @@ partial class EditarUsser
     }
     protected async Task Eliminar()
     {
+
+        bool elimino = false;
+
+        SweetAlertResult result = await Swal.FireAsync(new SweetAlertOptions
+        {
+            Title = "¿Seguro que quiere eliminar este usuario?",
+            Icon = SweetAlertIcon.Question,
+            ShowCancelButton = true,
+            ConfirmButtonText = "Aceptar",
+            CancelButtonText = "Cancelar",
+        });
+
+        if (!string.IsNullOrEmpty(result.Value))
+        {
+           elimino = await _usuarioServicio.Eliminar(user);
+
+            if (elimino)
+            {
+                await Swal.FireAsync("Bien Hecho", "Usuario Eliminado", SweetAlertIcon.Success);
+                _navigationManager.NavigateTo("/usser");
+            }
+            else
+            {
+                await Swal.FireAsync("Error", "No Se Pudo Eliminar El Usuario", SweetAlertIcon.Error);
+            }
+        }
+            
+            
+            
+            
+            
+     
+
+
 
     }
 
