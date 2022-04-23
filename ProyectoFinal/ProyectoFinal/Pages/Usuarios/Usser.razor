@@ -15,6 +15,7 @@ else
                 <th>Nombre</th>
                 <th>Tipo Usuario</th>
                 <th>Estado</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,9 @@ else
                         
                         }
 
+                    </td>
+                    <td>
+                        <a class = "btn btn-primary" href ="@($"/Usser/Editar/{user.CodigoUsuario}")">Editar</a>
                     </td>
                 </tr>
             }

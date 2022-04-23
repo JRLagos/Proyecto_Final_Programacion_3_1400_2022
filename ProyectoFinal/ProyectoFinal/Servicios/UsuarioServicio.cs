@@ -32,9 +32,9 @@ public class UsuarioServicio : IUsuarioServicio
         return await usuarioRepositorio.GetLista();
     }
 
-    public Task<Usuario> GetPorcodigo(string codigo)
+    public async Task<Usuario> GetPorcodigo(string codigo)
     {
-        throw new NotImplementedException();
+        return await usuarioRepositorio.GetPorcodigo(codigo);
     }
 
     public Task<bool> Nuevo(Usuario usuario)
