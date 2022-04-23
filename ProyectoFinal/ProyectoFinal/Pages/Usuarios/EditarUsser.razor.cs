@@ -22,7 +22,9 @@ partial class EditarUsser
     {
         Seleccionar,
         Administrador,
-        Vendedor
+        Vendedor,
+        Gerente,
+        Contador
     }
 }
 //ProyectoFinal

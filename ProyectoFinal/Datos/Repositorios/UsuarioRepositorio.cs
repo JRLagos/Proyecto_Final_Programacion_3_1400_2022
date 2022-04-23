@@ -47,15 +47,15 @@ public class UsuarioRepositorio : IUsuarioRepositorio
     }
 
 
-    public async Task<Usuario> GetPorcodigo(string codigo)
+    public async Task<Usuario> GetPorcodigo(string codigoUsuario)
     {
         Usuario user = new Usuario();
         try
         {
             using MySqlConnection conexion = Conexion();
             await conexion.OpenAsync();
-            string sql = "SELECT * FROM usuario WHERE Codigo = @Codigo; ";
-            user = await conexion.QueryFirstAsync<Usuario>(sql, new {codigo});
+            string sql = "SELECT * FROM usuario WHERE CodigoUsuario = @CodigoUsuario; ";
+            user = await conexion.QueryFirstAsync<Usuario>(sql, new {codigoUsuario});
         }
         catch (Exception)
         {
