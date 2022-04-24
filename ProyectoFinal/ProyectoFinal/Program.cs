@@ -18,6 +18,9 @@ builder.Services.AddSingleton(cadenaConexion);
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
 builder.Services.AddSweetAlert2();
 
+builder.Services.AddScoped<IAutomovilServicio, AutomovilServicio>();
+builder.Services.AddSweetAlert2();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

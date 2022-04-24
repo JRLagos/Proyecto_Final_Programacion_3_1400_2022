@@ -12,5 +12,4 @@ public  class Automovil
     public string Color { get; set; }
     public decimal Precio { get; set; }
     public int Existencia { get; set; }
-    public byte[] Foto { get; set; }
 }

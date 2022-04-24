@@ -1,0 +1,41 @@
+﻿@page "/Car"
+
+<h1 style = "color:blue;" >Auto-Ventas UNAH</h1>
+<h3>Lista de Automoviles</h3>
+
+@if (automovilLista == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo Automovil</th>
+                <th>Marca</th>
+                <th>Año</th>
+                <th>Color</th>
+                <th>Precio</th>
+                <th>Existencia</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in automovilLista)
+            {
+                <tr>
+                    <td>@user.CodigoAutomovil</td>
+                    <td>@user.Marca</td>
+                    <td>@user.Año</td>
+                    <td>@user.Color</td>
+                    <td>@user.Precio</td>
+                    <td>@user.Existencia</td>
+                </tr>
+            }
+        </tbody>
+         
+
+    </table>
+}
+

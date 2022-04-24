@@ -93,9 +93,5 @@ partial class EditarUsser
         Seleccionar,
         Administrador,
         Vendedor,
-        Gerente,
-        Contador
     }
 }
-//ProyectoFinal
-//1
