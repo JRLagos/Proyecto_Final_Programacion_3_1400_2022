@@ -1,6 +1,6 @@
 ﻿namespace Modelos;
 
-internal class DetalleFactura
+public class DetalleFactura
 {
 
     public int Id { get; set; }

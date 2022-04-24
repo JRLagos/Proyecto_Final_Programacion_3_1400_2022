@@ -2,7 +2,7 @@
 
 namespace Modelos;
 
-internal class Factura
+public class Factura
 {
     [Required(ErrorMessage = "El Campo IdFactura Es Obligatorio")]
     public int IdFactura { get; set; }
