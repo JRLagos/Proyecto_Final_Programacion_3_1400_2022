@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Facturas\Factura.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.2.1" />
   </ItemGroup>
 
@@ -15,10 +19,18 @@
     <ProjectReference Include="..\Modelos\Modelos.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
   <ItemGroup>
-    <Folder Include="Pages\Facturas\" />
+    <UpToDateCheckInput Remove="Pages\Facturas\Factura.razor" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Facturas\Factura.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Facturas\Factura.razor" />
+  </ItemGroup>
 
 </Project>
