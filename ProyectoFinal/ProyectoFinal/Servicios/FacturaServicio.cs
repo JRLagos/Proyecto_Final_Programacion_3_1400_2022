@@ -18,9 +18,9 @@ public class FacturaServicio : IFacturaServicio
     }
 
 
-    public Task<IEnumerable<Factura>> GetLista()
+    public async Task<IEnumerable<Factura>> GetLista()
     {
-        throw new NotImplementedException();
+        return await facturaRepositorio.GetLista();
     }
 
     public Task<Factura> GetPorCodigo(string idFactura)
