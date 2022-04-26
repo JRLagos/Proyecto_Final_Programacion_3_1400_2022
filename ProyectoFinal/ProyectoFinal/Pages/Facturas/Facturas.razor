@@ -1,12 +1,7 @@
 ﻿@page "/Facturas"
 
-<h3>Lista de Usuarios</h3>
-
-<div class"form-group row">
-    <div class="col-sm-2">
-        <a href="/Facturas/InsertarFactura" class="btn btn-primary">Insertar Factura</a>
-    </div>
-</div>
+     <h1 style = "color:blue;" >Auto-Ventas UNAH</h1>
+     <h3>Historial Facturas</h3>
 
 @if (facturasLista == null)
 {
@@ -19,7 +14,10 @@ else
             <tr>
                 <th>IdFactura</th>
                 <th>Identidad Cliente</th>
+                <th>Nombre Cliente</th>
                 <th>Fecha</th>
+                <th>Codigo Automovil</th>
+                <th>Cantidad </th>
                 <th>SubTotal</th>
                 <th>Impuesto</th>
                 <th>Total</th>
@@ -32,13 +30,16 @@ else
                 <tr>
                     <td>@factura.IdFactura</td>
                     <td>@factura.IdentidadCliente</td>
+                    <td>@factura.NombreCliente</td>
                     <td>@factura.Fecha</td>
+                    <td>@factura.CodigoAutomovil</td>
+                    <td>@factura.Cantidad</td>
                     <td>@factura.SubTotal</td>
                     <td>@factura.Impuesto</td>
                     <td>@factura.Total</td>
-                    <td>
-                        <a class="btn btn-success" href="@($"/Usuarios/Editar/{factura.IdFactura}")">Agregar</a>
-                    </td>
+@*                    <td>
+                        <a class="btn btn-success" href="@($"/Facturas/Nuevafactura/{factura.IdFactura}")">Agregar</a>
+                    </td>*@
 
                 </tr>
             }
