@@ -34,7 +34,6 @@ public class FacturaRepositorio : IFacturaRepositorio
         {
             return false;
         }
-        
     }
 
     public async Task<bool> InsertarDetalle(Factura factura)

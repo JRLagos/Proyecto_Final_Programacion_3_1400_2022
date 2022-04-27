@@ -23,9 +23,9 @@ public class FacturaServicio : IFacturaServicio
         return await facturaRepositorio.GetLista();
     }
 
-    public Task<Factura> GetPorCodigo(string idFactura)
+    public async Task<Factura> GetPorCodigo(string idFactura)
     {
-        throw new NotImplementedException();
+        return await facturaRepositorio.GetPorCodigo(idFactura);
     }
 
     public Task<bool> InsertarDetalle(Factura factura)
@@ -33,8 +33,9 @@ public class FacturaServicio : IFacturaServicio
         throw new NotImplementedException();
     }
 
-    public Task<bool> InsertarFactura(Factura factura)
+    public async Task<bool> InsertarFactura(Factura factura)
     {
-        throw new NotImplementedException();
+        return await facturaRepositorio.InsertarFactura(factura);
+
     }
 }

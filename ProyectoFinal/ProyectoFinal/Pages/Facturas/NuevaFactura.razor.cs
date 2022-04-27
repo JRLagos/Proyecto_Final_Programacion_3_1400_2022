@@ -8,13 +8,25 @@ namespace ProyectoFinal.Pages.Facturas
     partial class NuevaFactura
     {
         [Inject] private IFacturaServicio facturaServicio { get; set; }
+        [Inject] private IAutomovilServicio automovilServicio { get; set; }
         [Inject] private NavigationManager navigationManager { get; set; }
         [Inject] SweetAlertService Swal { get; set; }
+        [Parameter] public string CodigoAutomovil { get; set; }
+
+        private IEnumerable<Factura> facturaLista { get; set; }
 
         private Factura factura = new Factura();
         private Automovil automovil = new Automovil();
 
-        
+        protected override async Task OnInitializedAsync()
+        {
+            if (!string.IsNullOrEmpty(CodigoAutomovil))
+            {
+                automovil = await automovilServicio.GetPorcodigo(CodigoAutomovil);
+            }
+        }
+
+
         protected async Task Agregar()
         {
             if (string.IsNullOrEmpty(Convert.ToString(factura.IdFactura)) || string.IsNullOrEmpty(factura.IdentidadCliente) || (string.IsNullOrEmpty(Convert.ToString(factura.Fecha))) || (string.IsNullOrEmpty(Convert.ToString(factura.SubTotal))) || (string.IsNullOrEmpty(Convert.ToString(factura.Total))))
@@ -22,13 +34,16 @@ namespace ProyectoFinal.Pages.Facturas
                 return;
             }
 
+
             factura.SubTotal = factura.Cantidad * automovil.Precio;
             factura.Impuesto = factura.SubTotal * 0.15M;
             factura.Total = factura.SubTotal + factura.Impuesto;
+            
 
             bool inserto = await facturaServicio.InsertarFactura(factura);
             if (inserto)
             {
+                
                 await Swal.FireAsync("Listo", "Factura creada con exito", SweetAlertIcon.Success);
             }
             else
